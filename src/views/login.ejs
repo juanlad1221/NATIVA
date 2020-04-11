@@ -1,0 +1,58 @@
+<%- include('block_inicio') %>
+
+<div class="container-fluid image">
+    <br><br><br><br>
+    <div class="row d-flex justify-content-end " style="padding-right: 25%;">
+        <div class="column" style="width: 30%; text-align: center;">
+        <h1 class="" style="color: white;">LOGIN</h1>
+        
+        <div class="form-group p-4" style="background:#A4A4A4; border-radius: 2%; opacity: 0.9;">
+            <form action="/login" method="POST">
+                <input type="text" name="user" class="form-control" placeholder="User" id="user">
+                <input type="password" name="password" class="form-control mt-2" placeholder="Password" id="password">
+                <br>
+                <button class="btn btn-primary btn-block" id="btn">Enviar</button>
+            </form>
+        </div>
+
+        </div>
+    </div><!--row-->
+</div>
+<%- include('block_end') %>
+
+<style>
+    
+    .image{
+        margin: 0;
+        min-height: 100vh;
+        background-image: url('/img/img.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+</style>
+
+<script>
+    let btn = document.getElementById('btn');
+    let user = document.getElementById('user');
+    let password = document.getElementById('password')
+
+    user.onclick = () => {
+        user.value = ''
+    }
+    password.onclick = () => {
+        password.value = ''
+    }
+
+    btn.onclick = () => {
+        let user = document.getElementById('user').value;
+        let password = document.getElementById('password').value
+
+        if (user == '' || user == ' ' || user == null) { alert('Error: El Campo NO puede estar vacio'); return false }
+        if (password == '' || password == ' ' || password == null) { alert('Error: El Campo NO puede estar vacio'); return false }
+    }
+
+
+
+</script>

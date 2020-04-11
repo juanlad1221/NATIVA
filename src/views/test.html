@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-bundle.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-base.min.js" type="text/javascript"></script>
+    <!--<link rel="stylesheet" href="https://www.koolchart.com/demo/KoolChart/Assets/Css/KoolChart.css"/>-->
+</head>
+<body style="background: gray;">
+    
+
+    <!--<figure class="highcharts-figure" style="width: 300px;height: 200px; margin-left: 10%;">
+        <div id="container"></div>
+    </figure>-->
+    <!--<div id="chartHolder" style="height:250px; width:25%;"></div>-->
+
+    <div id="container" style="width: 300px; height: 300px;"></div>
+
+
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  
+   <!--<script src="https://www.koolchart.com/demo/LicenseKey/codepen/KoolChartLicense.js"></script>
+    <script src="https://www.koolchart.com/demo/KoolChart/JS/KoolChart.js"></script>
+    
+    
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/wordcloud.js"></script>-->
+    <!--<script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>-->
+</body>
+</html>
+
+<style>
+</style>
+
+<script>
+
+//var text = 'Lorem ipsum dolor Lange Lange Lange Lange sit Aguirre_consectetur adipiscing elit. Aenean bibendum erat ac justo sollicitudin, quis lacinia ligula fringilla. Pellentesque s sollicitudin. Mauris ac molestie nulla, vitae facilisis quam. Curabitur n lorem.';
+
+$.ajax({
+    type:'GET',
+    url:'/moda'
+    }).done(function(res){
+    
+      tusa2(res)
+    
+    
+    })
+
+
+
+function tusa2(data){
+anychart.onDocumentReady(function () {
+
+// create a chart and set the data
+var chart = anychart.tagCloud(data);
+
+// set the chart title
+chart.title("Tag Cloud Chart: Basic Sample");
+
+// set the container id
+chart.container("container");
+
+// initiate drawing the chart
+chart.draw();
+})
+}
+
+
+
+/*function tusa(text){
+var lines = text.split(/[,\. ]+/g),
+data = Highcharts.reduce(lines, function (arr, word) {
+        var obj = Highcharts.find(arr, function (obj) {
+            return obj.name === word;
+        });
+        if (obj) {
+            obj.weight += 1;
+        } else {
+            obj = {
+                name: word,
+                weight: 1
+            };
+            arr.push(obj);
+        }
+        return arr;
+    }, []);
+
+Highcharts.chart('container', {
+    accessibility: {
+        screenReaderSection: {
+            //beforeChartFormat: '<h5>{chartTitle}</h5>' //+
+                //'<div>{chartSubtitle}</div>' 
+                //'<div>{chartLongdesc}</div>' +
+                //'<div>{viewTableButton}</div>'
+        }
+    },
+    series: [{
+        type: 'wordcloud',
+        data: data,
+        name: 'Occurrences'
+    }],
+    title: {
+        text: 'Wordcloud of'
+    }
+})
+}
+/*var chartVars = "KoolOnLoadCallFunction=chartReadyHandler";
+
+KoolChart.create("chart1", "chartHolder", chartVars, "100%", "100%");
+
+function chartReadyHandler(id) {
+  document.getElementById(id).setLayout(layoutStr);
+  document.getElementById(id).setData(chartData);
+}
+
+var layoutStr = 
+	'<KoolChart backgroundColor="#FFFFFF"  borderStyle="none">'
+		+'<WordCloudChart showDataTips="true">'
+			+'<series>'
+				+'<WordCloudSeries textField="text" weightField="value">'
+					+'<showDataEffect>'
+						+'<SeriesInterpolate duration="1000"/>'
+					+'</showDataEffect>'
+					+'<fills>'
+						+'<SolidColor color="#52bb9d"/>'
+						+'<SolidColor color="#727b84"/>'
+						+'<SolidColor color="#ed527c"/>'
+						+'<SolidColor color="#f6a33d"/>'
+						+'<SolidColor color="#ed527a"/>'
+						+'<SolidColor color="#90d5c2"/>'
+					+'</fills>'
+				+'</WordCloudSeries>'
+			+'</series>'
+		+'</WordCloudChart>'
+	+'</KoolChart>';
+
+var chartData = 
+	[{text:"السلام", value:13},
+	{"text":"Ahoj", "value":12},
+	{"text":"こんにち", "value":3},
+	{"text":"안녕", "value":14},
+	{text:"Ola", value:3},
+	{"text":"Cześć", "value":2},
+	{"text":"Здравствуйте!", "value":12},
+	{"text":"Hello", "value":12},
+	{"text":"Halo", "value":9},
+	{"text":"Здраво", "value":9},
+	{"text":"¡Hola!", "value":11},
+	{"text":"Halo", "value":19},
+	{"text":"God dag", "value":12},
+	{"text":"Gruezi", "value":6},
+	{"text":"Musta", "value":8},
+	{"text":"สวัสดี", "value":7},
+	{"text":"Вітаю", "value":12},
+	{"text":"Ciao!", "value":11},
+	{"text":"Selam", "value":12},
+	{"text":"שלום", "value":9},
+	{"text":"Aloha", "value":8},
+	{"text":"Bonjour", "value":23},
+	{"text":"Hallo", "value":2},
+	{"text":"你好", "value":7},
+	{"text":"Фэсапщы", "value":10}];*/
+
+
+
+
+</script>

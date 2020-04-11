@@ -1,0 +1,77 @@
+<%- include('../block_inicio') %>
+<%- include('../barra_menu') %>
+<div class="container">
+    <br><br>
+    <div class="row d-flex justify-content-center">
+        <h1 class="">Licencias</h1>
+    </div>
+    <br>
+
+    
+        <table id="example" class="table table-bordered" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>APELLIDO</th>
+                    <th>NOMBRE</th>
+                    <th>DNI</th>
+                    <th>LICENCIA</th>
+                    <th>DESDE</th>
+                    <th>HASTA</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                
+            </tbody>
+        </table>
+    
+</div>
+
+
+
+
+<% function convertObjetDateToString(date){ %>
+    <% let dia_ = String(date.getDate()) %>
+    <% let mes_ = String((date.getMonth() + 1)) %>
+    <% let año_ = String(date.getFullYear()) %>
+    
+    <% if (dia_.length == 1) { %>
+    <% dia_ = '0' + dia_ %>
+    <% } %>
+    <% if (mes_.length == 1) { %>
+    <% mes_ = '0' + mes_ %>
+    <% } %>
+    <% return String(dia_ + '/' + mes_ + '/' + año_) %>
+<% } %>
+<%- include('../block_end') %>
+
+<script>
+var id_;
+
+//Muestra la tabla
+$('#example').DataTable({
+    ajax: "/licencias2",
+    language: {url: "//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"},
+    order: [[ 1, "asc" ]],
+    columns: [
+            { "data": "id" },
+            { "data": "last_name" },
+            { "data": "name" },
+            { "data": "dni" },
+            { "data": "name_licencia" },
+            { "data": "inicio" },
+            { "data": "fin" },
+            { "data": "status"},
+            ],
+})
+
+//Selecciona elementos en tabla
+$('#example tbody').on( 'click', '.icon', function () {
+    //id_ = $(this).parents("tr").find("td").eq(0).text()
+    //window.location.href = 'planilla/'+id
+    alert($(this).attr('atr'))
+})
+
+</script>

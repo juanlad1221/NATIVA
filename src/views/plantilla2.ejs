@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+
+    <div style="margin-left: 2%;">
+
+        <table>
+            <tr>
+                <td style="padding: 0%;">
+                    PROVINCIA DEL CHACO <br>
+                    MINISTERIO DE EDUCACIÓN, CULTURA,  <br>                   
+                    ANEXO I, A LA RESOLUCIÓN N° 732/91  
+                </td>
+                <td style=" width: 10%;"></td>
+                <td class="" valign="bottom" style="margin-left: 100px;">
+                    PLANILLA ANUAL DE PRESENTISMO (Form 91 – 2)
+                </td>
+                <td style=" width: 30%;"></td>
+                <td valign="bottom">- <%= datos.año%> -</td>
+            </tr>
+        </table>
+
+
+        <table id="example" class="tabla" style="text-align: center;">
+            <tr>
+                <td class="p-1" colspan="3" valign="center" style="width: 13%; font-size: 14px; margin: 0;">N° Establecimiento <br>
+                    U.E.G.P. Nº 42 <br>
+                    “INSTITUTO <br>
+                    ADVENTISTA DE <br>
+                    RESISTENCIA”
+                </td>
+                
+                <td colspan="4" class="S11 p-1" valign="top" style="width: 13%;">
+                    Región  <br>
+                    <p style="margin-top: 20%; font-size: 14px;"><strong>VIII</strong></p> 
+                </td>
+                <td colspan="2" class="S11 p-1" valign="top">
+                  Nivel <br>
+                  <p style="margin-top: 30%; font-size: 14px;">PRIMARIO</p> 
+                </td>
+                <td colspan="5" class="S11 p-1" valign="top" style="width: 13%;">
+                   Apellido y Nombre  
+                  <p style="margin-top: 15%; font-size: 14px;"><%= datos.last_name%></p>  
+                  <p style="font-size: 14px;"><%= datos.name%></p>
+                </td>
+                <td colspan="3" class="S11 p-1" valign="top" style="width: 13%;">
+                   Tipo y N° de Documento: <br>
+                   <p style="margin-top: 20%; font-size: 14px;"><%= datos.dni%></p> 
+                </td>
+                <td colspan="2" class="S11 p-1" valign="top" >
+                    Cargo Ocupado 
+                    <p style="margin-top: 15%; font-size: 14px;">MAESTRO DE GRADO</p>
+                </td>
+                <td colspan="3" class="S11 p-1" valign="top">Origen del Cargo</td>
+                <td colspan="3" class="S11 p-1" valign="top" style="width: 13%;">Suplente:Origen de la vacante</td>
+            </tr>
+    
+            <tr>
+                <td rowspan="3" class="S13">MESES</td>
+                <td colspan="2" class="S13">CALENDARIO</td>
+                <td colspan="2" class="S13">ASISTENCIA</td>
+                <td colspan="4" class="S13">INASISTENCIA</td>
+                <td colspan="2" class="S13">TARDANZA</td>
+                <td colspan="2" class="S13">RETIROS</td>
+                <td colspan="4" class="S13">LIC. QUE NO INCIDEN</td>
+                <td colspan="4" class="S13">LIC. QUE INCIDEN</td>
+                <td rowspan="3" class="S13">AUTORIZO <br>
+                DISP. <br>
+                RESOLUCION <br>
+                N°
+                </td>
+                <td rowspan="3" class="S13">
+                    DÍAS <br>
+                    ADHESIÓN <br>
+                    PARO <br>
+                    DOCENTE
+                </td>
+                <td rowspan="3" class="S13">ASUETOS</td>
+                <td rowspan="3" class="S13">FIRMA <br>
+                    DEL <br>
+                    DOCENTE
+                </td>
+            </tr>
+            
+            <tr>
+                <td rowspan="2" class="S13">CL.</td>
+                <td rowspan="2" class="S13">O.CL.</tdrowspan="2">
+                <td rowspan="2" class="S13">CL.</td>
+                <td rowspan="2" class="S13">O.C.</td>
+                <td colspan="2" class="S13">A CLASE</td>
+                <td colspan="2" class="S13">O.C.</td>
+                <td rowspan="2" class="S13">J</td>
+                <td rowspan="2" class="S13">I</td>
+                <td rowspan="2" class="S13">J</td>
+                <td rowspan="2" class="S13">I</td>
+                <td rowspan="2" class="S13">DESDE</td>
+                <td rowspan="2" class="S13">HASTA</td>
+                <td rowspan="2" class="S13">ART N°</td>
+                <td rowspan="2" class="S13">DÍAS <br>
+                    HAB.
+                </td>
+                <td rowspan="2" class="S13">DESDE</td>
+                <td rowspan="2" class="S13">HASTA</td>
+                <td rowspan="2" class="S13">ART N°</td>
+                <td rowspan="2" class="S13">DÍAS <br>
+                    HAB.
+                </td>
+            </tr>
+    
+            <tr class="S13">
+                <td>J</td>
+                <td>I</td>
+                <td>J</td>
+                <td>I</td>
+            </tr>
+           
+
+            <%result = datos.meses%>
+            <% for (let i in result){ %>
+            
+                <% if(typeof(result[i].mes) === 'string'){%>
+                    <tr class="s_12">
+                    <td class="textStart"><%= result[i].mes%></td>
+                    <td><%=result[i].calendarioCL%></td>
+                    <td><%=result[i].calendarioOCL%></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <%var se=result[i].licencias%>
+                        <% for(let i in se){ %>
+                            <% if(typeof(se[i].lic) === 'string'){%>
+                                <%=se[i].lic%>
+                                <br>
+                            <%}%>
+                        <%}%>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><%=result[i].asueto%></td>
+                    <td></td>
+                </tr> 
+                <%}%>
+            
+            <% }%>
+            
+            
+
+            
+        </table>
+    </div>
+    
+    <br>
+    <div class="" style="font-size: 13px; padding: 0%;">
+        <table cellspacing="45" style="margin-left: -2%;">
+            <tr>
+                <td>
+                    <p>OBSERVACIONES: ....................................................................................................................................................................</p>
+                    <br>
+                    <P>FIRMA Y SELLO DEL DIRECTOR</P>
+                </td>
+                <td class="" valign="top">
+                    <p>SELLO DEL ESTABLECIMIENTO: .....................................................</p>
+                    <p style="visibility: hidden;">k</p>
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700);
+        
+        .font-1{font-family: 'Montserrat', sans-serif;}
+        .font-2{font-family: 'Roboto', sans-serif;}
+        
+        .bt{
+            border: 1px solid blue;
+        }
+        .tabla{
+            border: 1px solid black;
+        }
+        .tabla td{
+            border: 1px solid black;
+        }
+        .S11{
+            font-size: 9px;
+        }
+        .S13{
+            font-size: 10px;
+        }
+        .s_11{
+            font-size: 11px;
+        }
+        .s_12{
+            font-size: 12px;
+        }
+        
+        .p-1{
+            padding:5px;
+        }
+        .mt-0{
+            margin-top: 0;
+        }
+        
+        .row{
+            display:flex;
+            -ms-flex-wrap:wrap;
+            flex-wrap:wrap;
+            margin-right:-15px;
+            margin-left:-15px;
+        }
+    
+        .textStart{
+            text-align: start;
+        }
+    
+        .btnjuan{
+            background: green;
+            color: white;
+            border: 0px;
+            padding: 0.5%;
+            cursor:pointer;
+            border-radius: 10Px;
+            margin-left: 1%;
+        }
+        .btnjuan:hover{
+            background: rgb(78, 151, 5);
+        }
+    
+        .btnjuan2{
+            background:blue;
+            color: white;
+            border: 0px;
+            padding: 0.5%;
+            cursor:pointer;
+            border-radius: 10Px;
+        }
+        .btnjuan2:hover{
+            background: rgb(52, 50, 192);
+        }
+        
+        .btn {
+            /*display: inline-block;*/
+            font-weight: normal;
+            line-height: 1.25;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+             border: 1px solid transparent;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+        }
+    
+        .ml{margin-left: 1%;}
+        .btn-primary{color:#fff;background-color:#007bff;border-color:#007bff}
+        .btn-primary:hover{color:#fff;background-color:#0069d9;border-color:#0062cc}
+    
+    </style>
+</body>
+</html>

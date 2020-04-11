@@ -1,0 +1,72 @@
+<%- include('block_inicio') %>
+<%- include('barra_menu') %>
+
+<div class="container">
+    <br><br>
+    <div class="row flex-column align-items-center">
+        <h1 class="">Informe Anual</h1>
+        <p class="">(Form 91 – 2)</p>
+    </div>
+    <br><br>
+
+   <div class="d-flex justify-content-center">
+        <div style="width: 90%;">
+            <table id="example" class="table table-bordered" style="text-align: center; ">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>APELLIDO</th>
+                    <th>NOMBRE</th>
+                    <th>DNI</th>
+                    <th>ACCION</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include('block_end') %>
+
+<style>
+.cursor{
+    cursor: pointer;
+}
+.fa-edit:hover{
+    color: rgb(216, 216, 19);
+}
+.fa-search-plus:hover{
+    color: rgb(75, 129, 211);
+}
+.fa-cloud-download-alt:hover{
+    color: rgb(75, 129, 211);
+}
+</style>
+
+<script>
+var id;
+//Muestra la tabla
+$('#example').DataTable({
+    ajax: "/informes2",
+    language: {url: "//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"},
+    order: [[ 1, "asc" ]],
+    columns: [
+            { "data": "_id" },
+            { "data": "last_name" },
+            { "data": "name" },
+            { "data": "dni" },
+            {
+            "defaultContent": "<div><i class='cursor fas fa-search-plus fa-lg icon'></i> <i class='fas fa-edit fa-lg icon ml-4 mr-4'></i> <i class='fas fa-cloud-download-alt fa-lg icon'></i></div>"
+            }],
+});
+
+//Selecciona elementos en tabla
+$('#example tbody').on( 'click', '.icon', function () {
+    id = $(this).parents("tr").find("td").eq(0).text()
+    window.location.href = 'planilla/'+id
+})
+</script>

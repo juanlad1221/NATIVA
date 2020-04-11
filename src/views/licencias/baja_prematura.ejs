@@ -1,0 +1,147 @@
+<%- include('../block_inicio') %>
+<%- include('../barra_menu') %>
+<div class="container">
+
+    <br><br>
+    <div class="row d-flex justify-content-center">
+        <h1 class="">Baja Prematura de Licencias</h1>
+    </div>
+    <br>
+
+    
+    <table id="example" class="table table-bordered" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>APELLIDO</th>
+                    <th>NOMBRE</th>
+                    <th>DNI</th>
+                    <th>LICENCIA</th>
+                    <th>DESDE</th>
+                    <th>HASTA</th>
+                    <th>STATUS</th>
+                    <th>ACCIÓN</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+    </table>
+</div>
+
+<!--Modal -->
+<div id="myModal" class="modal fade " tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <h5 class="modal-title"><strong>BAJA DE LICENCIA</strong></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+          <p>Ud. Dará de Baja Prematuramente la Licencia Seleccionada.  &nbsp
+              ¿Decea Hacerlo?</p>
+        </div>
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            <button id="btnSi" style="width: 15%;" data-toggle="modal" data-target="#myModalPin" type="button" class="btn btn-primary">Si</button>
+         </div>
+    
+      </div>
+    </div>
+</div>
+
+<!--Modal Pin-->
+<div id="myModalPin" class="modal fade " tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <h5 class="modal-title"><strong>Confirmar PIN</strong></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+            <input type="text" class="form-control" id="pin" autocomplete="off">
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" onclick="window.location.reload()" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button id="btnPin"  style="width: 19%;" type="button" class="btn btn-primary">Confirmar</button>
+        </div>
+    
+      </div>
+    </div>
+</div>
+
+
+<%- include('../block_end') %>
+
+<style>
+    .link_{
+        color: gray;
+    }
+    .link_:hover{
+        color: red;
+    }
+</style>
+
+<script>
+let btnSi = document.getElementById('btnSi')
+let pin = document.getElementById('pin')
+let btnPin = document.getElementById('btnPin')
+var id_;
+
+$('#example').DataTable({
+    ajax: "/baja_prematura2",
+    language: {url: "//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"},
+    order: [[ 1, "asc" ]],
+    columns: [
+            { "data": "id" },
+            { "data": "last_name" },
+            { "data": "name" },
+            { "data": "dni" },
+            { "data": "name_licencia" },
+            { "data": "inicio" },
+            { "data": "fin" },
+            { "defaultContent": "ACTIVA"},
+            {
+            "defaultContent": "<a href='#'' class='link_ icon' data-toggle='modal' data-target='#myModal'> <i class='fas fa-trash-alt fa-lg'></i></a>"
+            }],
+})
+
+
+//Selecciona elementos en tabla
+$('#example tbody').on( 'click', '.icon', function () {
+    id_ = $(this).parents("tr").find("td").eq(0).text()
+    //window.location.href = 'planilla/'+id
+})
+
+
+btnSi.onclick = () => {
+    //Oculto modales anteriores
+    $('#myModal').modal('hide')
+    
+    //Focus en modal PIN
+    $('#myModalPin').on('shown.bs.modal', function () {
+        $('#pin').focus()
+    })
+}//end btn
+
+btnPin.onclick = () => {
+    if(pin.value == localStorage.getItem('pin')){
+        Obj.ajaxConfigMsg('DELETE', '/bajaPrematura', {id:id_}, 'La Baja de Licencia Exitosa...',
+        [{code:400, msg:'Error: La Operacion NO Pudo Concretarse...'}], '#myModalPin')
+    }else{
+        alert('Error: PIN Incorrecto')
+  }//end if pin
+}//end btn
+
+
+</script>

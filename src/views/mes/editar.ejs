@@ -1,0 +1,334 @@
+<%- include('../block_inicio') %>
+<%- include('../barra_menu') %>
+<div class="container">
+    <br><br>
+    <div class="row d-flex justify-content-center">
+        <h1 class="">Editar Mes</h1>
+    </div>
+    <br>
+    
+    <div class="d-flex justify-content-center">
+        <table id="example" class="table table-bordered" style="width: auto; text-align: center;">
+            <thead>
+                <tr>
+                    <th>APELLIDO</th>
+                    <th>NOMBRE</th>
+                    <th>DNI</th>
+                    <th>TIPO</th>
+                    <th>FEB</th>
+                    <th>MAR</th>
+                    <th>ABR</th>
+                    <th>MAY</th>
+                    <th>JUN</th>
+                    <th>JUL</th>
+                    <th>AGO</th>
+                    <th>SEP</th>
+                    <th>OCT</th>
+                    <th>NOV</th>
+                    <th>DIC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% Docentes.forEach(function(e){ %>
+                  <tr>
+                        <td><%= e.last_name %></td>
+                        <td><%= e.name %></td>
+                        <td><%= e.dni %></td>
+                        <td><%= e.tipo %></td>
+                        <% e.dias.forEach(f => {%>
+
+                          <% if(Number(f.idcol) === 2) {%>
+                            <%if(f.mes === ''){%>
+                              <td>--</td>
+                            <%}else{%>
+                                <td>
+                                  <i atr='<%=e.id%>' atr2='<%=f.mes%>' atr3='<%=f.dias%>' atr4='<%=f.obligaciones%>' atr5='<%=f.asuetos%>' atr6='<%=e.tipo%>' class="fas fa-search fa-lg icon" data-toggle="modal" data-target="#myModal"></i>
+                                </td>
+                              <%}%>
+                          <%}%>
+
+                          <% if(Number(f.idcol) === 3) {%>
+                            <%if(f.mes === ''){%>
+                              <td>--</td>
+                            <%}else{%>
+                                <td>
+                                  <i atr='<%=e.id%>' atr2='<%=f.mes%>' atr3='<%=f.dias%>' atr4='<%=f.obligaciones%>' atr5='<%=f.asuetos%>' atr6='<%=e.tipo%>' class="fas fa-search fa-lg icon" data-toggle="modal" data-target="#myModal"></i>
+                                </td>
+                              <%}%>
+                          <%}%>
+
+                          <% if(Number(f.idcol) === 4) {%>
+                            <%if(f.mes === ''){%>
+                              <td>--</td>
+                            <%}else{%>
+                                <td>
+                                  <i atr='<%=e.id%>' atr2='<%=f.mes%>' atr3='<%=f.dias%>' atr4='<%=f.obligaciones%>' atr5='<%=f.asuetos%>' atr6='<%=e.tipo%>' class="fas fa-search fa-lg icon" data-toggle="modal" data-target="#myModal"></i>
+                                </td>
+                              <%}%>
+                          <%}%>
+
+                          <% if(Number(f.idcol) === 5) {%>
+                            <%if(f.mes === ''){%>
+                              <td>--</td>
+                            <%}else{%>
+                                <td>
+                                  <i atr='<%=e.id%>' atr2='<%=f.mes%>' atr3='<%=f.dias%>' atr4='<%=f.obligaciones%>' atr5='<%=f.asuetos%>' atr6='<%=e.tipo%>' class="fas fa-search fa-lg icon" data-toggle="modal" data-target="#myModal"></i>
+                                </td>
+                              <%}%>
+                          <%}%>
+
+                          <% if(Number(f.idcol) === 6) {%>
+                            <%if(f.mes === ''){%>
+                              <td>--</td>
+                            <%}else{%>
+                                <td>
+                                  <i atr='<%=e.id%>' atr2='<%=f.mes%>' atr3='<%=f.dias%>' atr4='<%=f.obligaciones%>' atr5='<%=f.asuetos%>' atr6='<%=e.tipo%>' class="fas fa-search fa-lg icon" data-toggle="modal" data-target="#myModal"></i>
+                                </td>
+                              <%}%>
+                          <%}%>
+
+                          <% if(Number(f.idcol) === 7) {%>
+                            <%if(f.mes === ''){%>
+                              <td>--</td>
+                            <%}else{%>
+                                <td>
+                                  <i atr='<%=e.id%>' atr2='<%=f.mes%>' atr3='<%=f.dias%>' atr4='<%=f.obligaciones%>' atr5='<%=f.asuetos%>' atr6='<%=e.tipo%>' class="fas fa-search fa-lg icon" data-toggle="modal" data-target="#myModal"></i>
+                                </td>
+                              <%}%>
+                          <%}%>
+
+                          <% if(Number(f.idcol) === 8) {%>
+                            <%if(f.mes === ''){%>
+                              <td>--</td>
+                            <%}else{%>
+                                <td>
+                                  <i atr='<%=e.id%>' atr2='<%=f.mes%>' atr3='<%=f.dias%>' atr4='<%=f.obligaciones%>' atr5='<%=f.asuetos%>' atr6='<%=e.tipo%>' class="fas fa-search fa-lg icon" data-toggle="modal" data-target="#myModal"></i>
+                                </td>
+                              <%}%>
+                          <%}%>
+
+                          <% if(Number(f.idcol) === 9) {%>
+                            <%if(f.mes === ''){%>
+                              <td>--</td>
+                            <%}else{%>
+                                <td>
+                                  <i atr='<%=e.id%>' atr2='<%=f.mes%>' atr3='<%=f.dias%>' atr4='<%=f.obligaciones%>' atr5='<%=f.asuetos%>' atr6='<%=e.tipo%>' class="fas fa-search fa-lg icon" data-toggle="modal" data-target="#myModal"></i>
+                                </td>
+                              <%}%>
+                          <%}%>
+
+                          <% if(Number(f.idcol) === 10) {%>
+                            <%if(f.mes === ''){%>
+                              <td>--</td>
+                            <%}else{%>
+                                <td>
+                                  <i atr='<%=e.id%>' atr2='<%=f.mes%>' atr3='<%=f.dias%>' atr4='<%=f.obligaciones%>' atr5='<%=f.asuetos%>' atr6='<%=e.tipo%>' class="fas fa-search fa-lg icon" data-toggle="modal" data-target="#myModal"></i>
+                                </td>
+                              <%}%>
+                          <%}%>
+
+                          <% if(Number(f.idcol) === 11) {%>
+                            <%if(f.mes === ''){%>
+                              <td>--</td>
+                            <%}else{%>
+                                <td>
+                                  <i atr='<%=e.id%>' atr2='<%=f.mes%>' atr3='<%=f.dias%>' atr4='<%=f.obligaciones%>' atr5='<%=f.asuetos%>' atr6='<%=e.tipo%>' class="fas fa-search fa-lg icon" data-toggle="modal" data-target="#myModal"></i>
+                                </td>
+                              <%}%>
+                          <%}%>
+
+                          <% if(Number(f.idcol) === 12) {%>
+                            <%if(f.mes === ''){%>
+                              <td>--</td>
+                            <%}else{%>
+                                <td>
+                                  <i atr='<%=e.id%>' atr2='<%=f.mes%>' atr3='<%=f.dias%>' atr4='<%=f.obligaciones%>' atr5='<%=f.asuetos%>' atr6='<%=e.tipo%>' class="fas fa-search fa-lg icon" data-toggle="modal" data-target="#myModal"></i>
+                                </td>
+                              <%}%>
+                          <%}%>
+                        <%})%>
+                    </tr>
+                  <% }) %>
+            </tbody>
+        </table>
+    </div><!--end div-->
+    
+    
+    
+
+<!--Modal Editando-->
+<div id="myModal" class="modal fade " tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title"><strong>Editando Mes</strong></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body flex-column">
+                
+        <div class="row d-flex justify-content-between align-items-center">
+            <label class="ml-2"><strong>Dias Habiles del Mes</strong></label>
+            <input type="text" style="width: 10%;" class="form-control mr-3 disabled" id="dias" autocomplete="off">
+        </div>
+        <br>
+        <div class="row d-flex justify-content-between align-items-center">
+            <label class="m-2"><strong>O.Concurrentes  del Mes</strong></label>
+            <input style="width: 10%;" type="text" class="form-control mr-3 disabled" id="obligaciones" autocomplete="off">
+        </div>
+        <br>
+        <div class="row d-flex justify-content-between align-items-center">
+            <label class="m-2"><strong>Asuetos del Mes</strong></label>
+            <input style="width: 10%;" type="text" class="form-control mr-3 disabled" id="asuetos" autocomplete="off">
+        </div>
+    
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" onclick="location.reload()" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button id="btneditar" onclick="HabilitarEdit()" style="width:auto" type="button" class="btn btn-warning">Editar</button>
+        <button id="btnGuardar" style="width:auto"  type="button" class="btn btn-primary disabled" data-toggle="modal" data-target="#myModalPin">Guardar</button>
+      </div>
+  
+    </div>
+  </div>
+</div>
+
+
+<!--Modal info-->
+<div id="myModalinfo" class="modal fade " tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title"><strong>Editar Datos</strong></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <p>Ud. Editará Datos del Docente Selecionado. ¿Decea hacerlo?</p>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button style="width: 15%;" onclick="$('#myModalinfo').modal('hide')" data-toggle="modal" data-target="#myModalPin" type="button" class="btn btn-primary">Si</button>
+      </div>
+  
+    </div>
+  </div>
+</div>
+
+<!--Modal Pin-->
+<div id="myModalPin" class="modal fade " tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <h5 class="modal-title"><strong>Confirmar PIN</strong></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+            <input type="text" class="form-control" id="pin" autocomplete="off">
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" onclick=window.location.reload() class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button id="btnpin"  style="width: 19%;" type="button" class="btn btn-primary">Confirmar</button>
+        </div>
+    
+      </div>
+    </div>
+</div>
+
+<%- include('../block_end') %>
+<style>
+.icon:hover{
+    color:rgb(64, 115, 226);
+    cursor: pointer;
+}
+</style>
+
+<script>
+let pin = document.getElementById('pin')
+let btnpin = document.getElementById('btnpin')
+let btnEditar = document.getElementById('btneditar')
+let btnGuardar = document.getElementById('btnGuardar')
+let dias = document.getElementById('dias')
+let obligaciones = document.getElementById('obligaciones')
+let asuetos = document.getElementById('asuetos')
+var id;
+var mes;
+var tipo;
+
+//Tomo el id selecionado
+$(".icon").click(function () {
+  id = $(this).attr('atr')
+  mes = $(this).attr('atr2')
+  tipo = $(this).attr('atr6')
+  dias.value = $(this).attr('atr3')
+  obligaciones.value = $(this).attr('atr4')
+  asuetos.value = $(this).attr('atr5')
+})
+
+//Btn guardar
+btnGuardar.onclick = () => {
+  //Oculto modales anteriores
+  $('#myModal').modal('hide')
+  
+  //Controlo los datos para la modificacion
+  if(!FrontValidate.input('dias',['presence','no_letters','NO_LETTERS','no_space',{max:2}],'windows')){
+        if(!FrontValidate.input('obligaciones',['presence','no_letters','NO_LETTERS','no_space',{max:2}],'windows')){
+            if(!FrontValidate.input('asuetos',['presence','no_letters','NO_LETTERS','no_space',{max:2}],'windows')){
+                //alert('paso')
+            }else{
+                //Con true recarga la pagina
+                window.location.reload()
+            }
+        }else{
+            //Con true recarga la pagina
+            window.location.reload()
+        }
+    }else{
+        //Con true recarga la pagina
+        window.location.reload()
+  }//end if
+}//end guardar
+
+
+//btn
+btnpin.onclick = () => {
+  if(pin.value == localStorage.getItem('pin')){
+    Obj.ajaxConfigMsg('PUT','/editando',{id,mes,tipo,dias:dias.value,obligaciones:obligaciones.value,asuetos:asuetos.value},
+    'La Actualizacion Fue Exitosa...',[{code:400,msg:'Tipo de Datos Incorrecto...'}],'#myModalPin')
+  }else{
+    alert('Error: PIN Incorrecto')
+  }//end if pin
+}//end btn
+
+//Pone input pin con focus
+$('#myModalPin').on('shown.bs.modal', function () {
+    $('#pin').focus();
+})
+
+function HabilitarEdit(){
+  let dias = document.getElementById('dias')
+  let obligaciones = document.getElementById('obligaciones')
+  let asuetos = document.getElementById('asuetos')
+  let btnGuardar = document.getElementById('btnGuardar')
+
+  dias.classList.remove('disabled')
+  obligaciones.classList.remove('disabled')
+  asuetos.classList.remove('disabled')
+  btneditar.classList.add('disabled')
+  btnGuardar.classList.remove('disabled')
+
+}//end
+</script>

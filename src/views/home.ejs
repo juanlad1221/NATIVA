@@ -1,0 +1,162 @@
+<%- include('block_inicio') %>
+<%- include('barra_menu') %>
+<div class="container">
+    <br>
+    <div class="row d-flex justify-content-between" >
+    
+        <!--Tabla-->
+        <div class="col-6-md " style="width: 40%;">
+
+            <label id="label" for="" style="margin-left: 40%; font-size: 15px;"></label>
+
+            <ul class="list-group" style="margin-top: -7px;" >
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Licencias Activas
+                  <span class="badge badge-primary badge-pill"><%= Activas%></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Licencias por Vencer
+                  <span class="badge badge-primary badge-pill"><%= PorVencer%></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Licencias Terminadas(este año)
+                  <span class="badge badge-primary badge-pill"><%= Baja%></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Licencias NO Confirmadas
+                  <span class="badge badge-primary badge-pill"><%= No_confirm%></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Ultimo Mes Validado(Docentes de Grado)
+                  <span class="badge badge-primary badge-pill"><%= MesValidado%></span>
+                </li>
+            </ul>
+
+        </div>
+    
+        <!--Clima-->
+        <div class="col-6-md" style="margin-top: 2.4%;">
+          <div id="cont_d4a21369633b0b8e0734b91d3e0eef05">
+            <script type="text/javascript" async src="https://www.tiempo.com/wid_loader/d4a21369633b0b8e0734b91d3e0eef05"></script>
+          </div>
+        </div>
+
+        <!--moda-->
+        <div id="container" style="width: 300px; height: 300px;">
+        </div>
+
+    </div>
+    
+    <br><br>
+
+    <div class="row d-flex justify-content-center pt-3" style="padding: 0.5%; background: rgb(179, 175, 175); border-radius: 5px;" >
+      <h4 id="titulo2"></h4>
+    </div>
+
+    <br>
+
+    <div class="row d-flex justify-content-between mt-3">
+      <!--top3-->
+      <table style="width: auto; text-align: center; ">
+          <tr>
+            <th colspan="2" class="p-1" style="border: 1px solid gray;" id="titulo3"></th>
+          </tr>
+          <tr>
+            <th style="border: 1px solid gray;">Docente</th>
+            <th style="border: 1px solid gray;" class="p-1">Cantidad</th>
+          </tr>
+          <% top3.forEach(e => { %>
+            <tr>
+              <td style="border: 1px solid gray; text-align: start" class="p-1"><%= e.last_name%> <%= e.name%></td>
+              <td style="border: 1px solid gray;"><%= e.cant%></td>
+            </tr>
+          <% }) %>
+      </table>
+      
+      <!--top5-->
+      <table style="width: auto; text-align: center; ">
+          <tr>
+            <th colspan="2" class="p-1" style="border: 1px solid gray;">TOP 5 DE INASISTENCIAS</th>
+          </tr>
+          <tr>
+            <th style="border: 1px solid gray;">Docente</th>
+            <th style="border: 1px solid gray;" class="p-1">Dias</th>
+          </tr>
+          <% top5.forEach(e => {%>
+            <tr>
+              <td style="border: 1px solid gray; text-align: start" class="p-1"><%=e.docente%></td>
+              <td style="border: 1px solid gray;"><%=e.cant%></td>
+            </tr>
+          <% }) %>
+      </table>
+
+      <!--Razones Particulares-->
+      <table style="width: auto; text-align: center; ">
+        <tr>
+          <th colspan="2" class="p-1" style="border: 1px solid gray;">RAZONES PARTICULARES</th>
+        </tr>
+        <tr>
+          <th style="border: 1px solid gray;">Docente</th>
+          <th style="border: 1px solid gray;" class="p-1">Cantidad</th>
+        </tr>
+        <% rparticulares.forEach(function(e){ %>
+          <tr>
+            <td style="border: 1px solid gray; text-align: start" class="p-1"><%= e.docente%></td>
+            <td style="border: 1px solid gray;"><%= e.cant%></td>
+          </tr>
+        <% }) %>
+      </table>
+
+    </div>
+</div>
+
+
+<br><br>
+<a href="<%=pin%>" style="visibility: hidden;" id="pin"></a>
+<script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-bundle.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-base.min.js"></script>
+<%- include('block_end') %>
+
+
+<script>
+let label = document.getElementById('label')
+let pin = document.getElementById('pin')
+let titulo2 = document.getElementById('titulo2')
+let titulo3 = document.getElementById('titulo3')
+let año = new Date().getFullYear()
+localStorage.setItem('pin','')
+localStorage.setItem('pin', pin.getAttribute('href'))
+
+label.innerHTML = `<strong>Año: ${año}</strong>`
+titulo2.innerHTML = `<strong>Algunas Estadisticas ${año}</strong>`
+titulo3.innerHTML = `TOP 3 DE CANTIDAD DE LICENCIAS`
+
+//Preload para word cloud
+window.onload = () => {
+
+  $.ajax({
+    type:'GET',
+    url:'/moda'
+    }).done(function(res){
+      Moda(res)
+    })
+}//end load
+
+function Moda(data){
+  anychart.onDocumentReady(function () {
+
+  // create a chart and set the data
+  var chart = anychart.tagCloud(data);
+
+  // set the chart title
+  chart.title("MODA DE LICENCIAS");
+
+  // set the container id
+  chart.container("container");
+
+  // initiate drawing the chart
+  chart.draw();
+  })
+}//end
+</script>

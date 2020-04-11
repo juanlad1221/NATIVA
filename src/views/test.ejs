@@ -1,0 +1,84 @@
+<%- include('block_inicio') %>
+
+
+
+<div id="container" style="width: 300px; height: 300px;"></div>
+
+
+<script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-bundle.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-base.min.js"></script>
+<%- include('block_end') %>
+
+<script>
+$.ajax({
+    type:'GET',
+    url:'/moda'
+    }).done(function(res){
+    
+      tusa2(res)
+    
+    
+    })
+
+
+
+function tusa2(data){
+anychart.onDocumentReady(function () {
+
+// create a chart and set the data
+var chart = anychart.tagCloud(data);
+
+// set the chart title
+chart.title("Tag Cloud Chart: Basic Sample");
+
+// set the container id
+chart.container("container");
+
+// initiate drawing the chart
+chart.draw();
+})
+}
+
+
+//tusa('hfggf hhdgg gdggd')
+
+//var text = 'Lorem ipsum dolor Lange Lange Lange Lange sit Aguirre_consectetur adipiscing elit. Aenean bibendum erat ac justo sollicitudin, quis lacinia ligula fringilla. Pellentesque s sollicitudin. Mauris ac molestie nulla, vitae facilisis quam. Curabitur n lorem.';
+/*function tusa(text){
+    var lines = text.split(/[,\. ]+/g),
+    data = Highcharts.reduce(lines, function (arr, word) {
+        var obj = Highcharts.find(arr, function (obj) {
+            return obj.name === word;
+        });
+        if (obj) {
+            obj.weight += 1;
+        } else {
+            obj = {
+                name: word,
+                weight: 1
+            };
+            arr.push(obj);
+        }
+        return arr;
+    }, []);
+
+    Highcharts.chart('container', {
+        accessibility: {
+            screenReaderSection: {
+            //beforeChartFormat: '<h5>{chartTitle}</h5>' //+
+                //'<div>{chartSubtitle}</div>' 
+                //'<div>{chartLongdesc}</div>' +
+                //'<div>{viewTableButton}</div>'
+            }
+        },
+        series: [{
+            type: 'wordcloud',
+            data: data,
+            name: 'Occurrences'
+        }],
+        title: {
+            text: 'Moda de Licencias'
+        }
+    })
+}*/
+</script>

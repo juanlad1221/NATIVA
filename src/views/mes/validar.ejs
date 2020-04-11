@@ -1,0 +1,513 @@
+<%- include('../block_inicio') %>
+<%- include('../barra_menu') %>
+<div class="container">
+    <br>
+    <div class="row d-flex justify-content-center">
+        <h1 class="">Validar Mes</h1>
+    </div>
+    <br><br>
+
+    <div class="d-flex flex-column align-items-center">
+        <h5 style="font-size: 14px;"><strong>DOCENTES DE GRADO</strong></h5>
+        <div class="row p-1" style="width: 50%; margin-top: -15px; margin-left: 40px;">
+
+            <% if(array.includes(String(2))){ %>
+            <div class="card2" id="febrero">
+               <span><a href="#" class="link">FEBRERO</a></span> 
+            </div>
+            <%}else{%>
+            <div class="card" id="febrero" data-toggle="modal" data-target="#myModal">
+                <span><a href="#" class="link">FEBRERO</a></span>
+            </div>
+            <%}%>
+            
+            <% if(array.includes(String(3))){ %>
+            <div class="card2" id="marzo">
+                <a href="#" class="link">MARZO</a>
+            </div>
+            <%}else{%>
+            <div class="card" id="marzo" data-toggle="modal" data-target="#myModal">
+                <a href="#" class="link">MARZO</a>
+            </div>
+            <%}%>
+            
+            <% if(array.includes(String(4))){ %>
+            <div class="card2" id="abril">
+                <a href="#" class="link">ABRIL</a>
+            </div>
+            <%}else{%>
+            <div class="card" id="abril" data-toggle="modal" data-target="#myModal">
+                <a href="#" class="link">ABRIL</a>
+            </div>
+            <%}%>
+
+            <% if(array.includes(String(5))){ %>
+            <div class="card2" id="mayo">
+                <span><a href="#" class="link">MAYO</a></span>
+            </div>
+            <%}else{%>
+            <div class="card" id="mayo" data-toggle="modal" data-target="#myModal">
+                <span><a href="#" class="link">MAYO</a></span>
+            </div>
+            <%}%>
+
+            <% if(array.includes(String(6))){ %>
+            <div class="card2" id="junio">
+                <a href="#" class="link">JUNIO</a>
+            </div>
+            <%}else{%>
+            <div class="card" id="junio" data-toggle="modal" data-target="#myModal">
+                <a href="#" class="link">JUNIO</a>
+            </div>
+            <%}%>
+
+            <% if(array.includes(String(7))){ %>
+            <div class="card2" id="julio">
+                <a href="#" class="link">JULIO</a>
+            </div>
+            <%}else{%>
+            <div class="card" id="julio" data-toggle="modal" data-target="#myModal">
+                <a href="#" class="link">JULIO</a>
+            </div>
+            <%}%>
+
+            <% if(array.includes(String(8))){ %>
+            <div class="card2" id="agosto">
+                <a href="#" class="link">AGOSTO</a>
+            </div>
+            <%}else{%>
+            <div class="card" id="agosto" data-toggle="modal" data-target="#myModal">
+                <a href="#" class="link">AGOSTO</a>
+            </div>
+            <%}%>
+
+            <% if(array.includes(String(9))){ %>
+            <div class="card2" id="septiembre">
+                <a href="#" class="link">SEPTIEMBRE</a>
+            </div>
+            <%}else{%>
+            <div class="card" id="septiembre" data-toggle="modal" data-target="#myModal">
+                <a href="#" class="link">SEPTIEMBRE</a>
+            </div>
+            <%}%>
+
+            <% if(array.includes(String(10))){ %>
+            <div class="card2" id="octubre">
+                <a href="#" class="link">OCTUBRE</a>
+            </div>
+            <%}else{%>
+            <div class="card" id="octubre" data-toggle="modal" data-target="#myModal">
+                <a href="#" class="link">OCTUBRE</a>
+            </div>
+            <%}%>
+
+            <% if(array.includes(String(11))){ %>
+            <div class="card2" id="noviembre">
+                <a href="#" class="link">NOVIEMBRE</a>
+            </div>
+            <%}else{%>
+            <div class="card" id="noviembre" data-toggle="modal" data-target="#myModal">
+                <a href="#" class="link">NOVIEMBRE</a>
+            </div>
+            <%}%>
+            
+            <% if(array.includes(String(12))){ %>
+            <div class="card2" id="diciembre">
+                <a href="#" class="link">DICIEMBRE</a>
+            </div>
+            <%}else{%>
+            <div class="card" id="diciembre" data-toggle="modal" data-target="#myModal">
+                <a href="#" class="link">DICIEMBRE</a>
+            </div>
+            <%}%>
+            
+        </div>
+    </div>
+
+    <br><br><br>
+    <div class="row justify-content-center" style="width: auto;">
+        <table class="mr-2" style="text-align: center;" >
+            
+            <tr>
+                <th colspan="12" class="p-1">DOCENTES ESPECIALES</th>
+            </tr>
+            <tr>
+                <th class="p-1">Docente</th>
+                <th class="p-1">Feb</th>
+                <th class="p-1">Mar</th>
+                <th class="p-1">Abr</th>
+                <th class="p-1">May</th>
+                <th class="p-1">Jun</th>
+                <th class="p-1">Jul</th>
+                <th class="p-1">Ago</th>
+                <th class="p-1">Sep</th>
+                <th class="p-1">Oct</th>
+                <th class="p-1">Nob</th>
+                <th class="p-1">Dic</th>
+            </tr>
+            
+            <% especiales.forEach(e => { %>
+                <tr>
+                    <td style="text-align: left;"><%=e.docente%></td>
+                    <%if(e.dias.includes(2)){%>
+                        <td><span class="ok"></span></td>
+                    <%}else{%>
+                        <td><span atr='<%=e.id%>' atr2='2' class="error" data-toggle="modal" data-target="#myModal"></span></td>
+                    <%}%>
+                    <%if(e.dias.includes(3)){%>
+                        <td><span class="ok"></span></td>
+                    <%}else{%>
+                        <td><span atr='<%=e.id%>' atr2='3' class="error" data-toggle="modal" data-target="#myModal"></span></td>
+                    <%}%>
+                    <%if(e.dias.includes(4)){%>
+                        <td><span class="ok"></span></td>
+                    <%}else{%>
+                        <td><span atr='<%=e.id%>' atr2='4' class="error" data-toggle="modal" data-target="#myModal"></span></td>
+                    <%}%>
+                    <%if(e.dias.includes(5)){%>
+                        <td><span class="ok"></span></td>
+                    <%}else{%>
+                        <td><span atr='<%=e.id%>' atr2='5' class="error" data-toggle="modal" data-target="#myModal"></span></td>
+                    <%}%>
+                    <%if(e.dias.includes(6)){%>
+                        <td><span class="ok"></span></td>
+                    <%}else{%>
+                        <td><span atr='<%=e.id%>' atr2='6' class="error" data-toggle="modal" data-target="#myModal"></span></td>
+                    <%}%>
+                    <%if(e.dias.includes(7)){%>
+                        <td><span class="ok"></span></td>
+                    <%}else{%>
+                        <td><span atr='<%=e.id%>' atr2='7' class="error" data-toggle="modal" data-target="#myModal"></span></td>
+                    <%}%>
+                    <%if(e.dias.includes(8)){%>
+                        <td><span class="ok"></span></td>
+                    <%}else{%>
+                        <td><span atr='<%=e.id%>' atr2='8' class="error" data-toggle="modal" data-target="#myModal"></span></td>
+                    <%}%>
+                    <%if(e.dias.includes(9)){%>
+                        <td><span class="ok"></span></td>
+                    <%}else{%>
+                        <td><span atr='<%=e.id%>' atr2='9' class="error" data-toggle="modal" data-target="#myModal"></span></td>
+                    <%}%>
+                    <%if(e.dias.includes(10)){%>
+                        <td><span class="ok"></span></td>
+                    <%}else{%>
+                        <td><span atr='<%=e.id%>' atr2='10' class="error" data-toggle="modal" data-target="#myModal"></span></td>
+                    <%}%>
+                    <%if(e.dias.includes(11)){%>
+                        <td><span class="ok"></span></td>
+                    <%}else{%>
+                        <td><span atr='<%=e.id%>' atr2='11' class="error" data-toggle="modal" data-target="#myModal"></span></td>
+                    <%}%>
+                    <%if(e.dias.includes(12)){%>
+                        <td><span class="ok"></span></td>
+                    <%}else{%>
+                        <td><span atr='<%=e.id%>' atr2='12' class="error" data-toggle="modal" data-target="#myModal"></span></td>
+                    <%}%>
+                </tr>
+                <%})%>
+        </table>
+    </div>
+    
+
+    <br><br><br>
+    <div class="row d-flex justify-content-center">
+        <div class="alert alert-primary  pt-4 p-2 d-flex justify-content-center align-items-center" style="width:auto;font-size: 13px;">
+            <i class="fas fa-info-circle fa-2x" style="margin-bottom: 2%;"></i>
+            <p class="ml-2">ATENCIÓN: Antes de Descargar el Informe Anual, Deben Validar Todos los Meses.</p> 
+        </div>
+    </div>
+    
+    <!--Modal-->
+    <div id="myModal" class="modal fade " tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            
+            <div class="modal-header">
+              <h5 class="modal-title"><strong>Cargar Datos</strong></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+            <div class="modal-body flex-column">
+                
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <label class="ml-2"><strong>Dias Habiles del Mes</strong></label>
+                        <input type="text" style="width: 10%;" class="form-control mr-3" id="dias">
+                    </div>
+                    <br>
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <label class="m-2"><strong>O.Concurrentes  del Mes</strong></label>
+                        <input style="width: 10%;" type="text" class="form-control mr-3" id="obligaciones">
+                    </div>
+                    <br>
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <label class="m-2"><strong>Asuetos del Mes</strong></label>
+                        <input style="width: 10%;" type="text" class="form-control mr-3" id="asuetos">
+                    </div>
+                
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button id="btn" style="width:auto;" type="button" class="btn btn-primary">Guardar</button>
+              
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!--Modal Pin-->
+    <div id="myModal2" class="modal fade " tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <h5 class="modal-title"><strong>Confirmar PIN</strong></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+            <input type="text" class="form-control" id="pin" autocomplete="off">
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" onclick=window.location.reload() class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button id="btn_confirmar"  style="width: 19%;" type="button" class="btn btn-primary">Confirmar</button>
+        </div>
+    
+      </div>
+    </div>
+    </div>
+    
+<%- include('../block_end') %>
+<style>
+
+.ok{
+    width: 20px;
+    height: 20px;
+    background: #D4F4C8;
+    border: 2px solid green;
+    border-radius: 100%;
+    display: block;
+    margin: auto;
+}
+.error{
+    width: 20px;
+    height: 20px;
+    border: 2px solid red;
+    background:#F9D1E3;
+    border-radius: 100%;
+    display: block;
+    cursor: pointer;
+    margin: auto;
+}
+
+table tr th{
+    border: 1px solid grey;
+}
+table tr td{
+    border: 1px solid grey;
+    padding: 1%;
+}
+            
+@keyframes bounce {
+0%,
+100%,
+20%,
+50%,
+80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0)
+}
+
+40% {
+    -webkit-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px)
+}
+
+60% {
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    transform: translateY(-15px)
+    }
+}
+
+.card {
+    width: 25%;
+    border: 2px solid red;
+    border-radius: 15px;
+    background-color: #F9D1E3;
+    padding: 1%;
+    text-align: center;
+    margin-left: 2%;
+    margin-top: 2%;
+    color: black;
+}
+
+.card a {
+    color: black;
+}
+.card2 a {
+    color: black;
+}
+
+.card2 {
+    width: 25%;
+    border: 2px solid green;
+    border-radius: 15px;
+    background-color: #D4F4C8;
+    padding: 1%;
+    text-align: center;
+    margin-left: 2%;
+    margin-top: 2%;
+    color: black;
+}
+a:hover{
+    text-decoration: none;
+}
+                  
+</style>
+
+<script>
+let febrero = document.getElementById('febrero')
+let marzo = document.getElementById('marzo')
+let abril = document.getElementById('abril')
+let mayo = document.getElementById('mayo')
+let junio = document.getElementById('junio')
+let julio = document.getElementById('julio')
+let agosto = document.getElementById('agosto')
+let septiembre = document.getElementById('septiembre')
+let octubre = document.getElementById('octubre')
+let noviembre = document.getElementById('noviembre')
+let diciembre = document.getElementById('diciembre')
+
+let btn_confirmar = document.getElementById('btn_confirmar')
+let pin = document.getElementById('pin')
+let btn = document.getElementById('btn')
+var mes;
+var id;
+var tipo;
+
+febrero.onclick = () => {
+mes = 2
+id=''
+tipo = 'Grado'
+}
+marzo.onclick = () => {
+mes = 3
+id=''
+tipo = 'Grado'
+}
+abril.onclick = () => {
+mes = 4
+id=''
+tipo = 'Grado'
+}
+mayo.onclick = () => {
+mes = 5
+id=''
+tipo = 'Grado'
+}
+junio.onclick = () => {
+mes = 6
+id=''
+tipo = 'Grado'
+}
+julio.onclick = () => {
+mes = 7
+id=''
+tipo = 'Grado'
+}
+agosto.onclick = () => {
+mes = 8
+id=''
+tipo = 'Grado'
+}
+septiembre.onclick = () => {
+mes = 9
+id=''
+tipo = 'Grado'
+}
+octubre.onclick = () => {
+mes = 10
+id=''
+tipo = 'Grado'
+}
+noviembre.onclick = () => {
+mes = 11
+id=''
+tipo = 'Grado'
+}
+diciembre.onclick = () => {
+mes = 12
+id=''
+tipo = 'Grado'
+}
+
+//btn
+btn.onclick = () => {
+//Oculto modal
+$('#myModal').modal('hide');
+//Pasa con resultado false)
+if (!FrontValidate.input('dias', ['presence', 'no_letters', 'NO_LETTERS', 'no_space', { max: 2 }], 'windows')) {
+    if (!FrontValidate.input('obligaciones', ['presence', 'no_letters', 'NO_LETTERS', 'no_space', { max: 2 }], 'windows')) {
+        if (!FrontValidate.input('asuetos', ['presence', 'no_letters', 'NO_LETTERS', 'no_space', { max: 2 }], 'windows')) {
+            let dias = document.getElementById('dias')
+            let obligaciones = document.getElementById('obligaciones')
+            let asuetos = document.getElementById('asuetos')
+            $('#myModal2').modal('show')
+        } else {
+            //Con true recarga la pagina
+            window.location.reload()
+        }//end if3
+    } else {
+        //Con true recarga la pagina
+        window.location.reload()
+    }//end if2
+} else {
+    //Con true recarga la pagina
+    window.location.reload()
+}//end if1
+}//end btn
+
+btn_confirmar.onclick = () => {
+    //alert(typeof(id))
+    if (pin.value === localStorage.getItem('pin')) {
+        
+        Obj.ajaxConfigMsg('POST','/validar_mes',{mes:mes,dias: dias.value,
+            obligaciones: obligaciones.value,
+            asuetos: asuetos.value,
+            id:id,
+            tipo:tipo},'La Operacion Fue Exitosa',
+            [{code:404,msg:'La Operacion NO Pudo Resolverse. Mes Duplicado'},
+            {code:403,msg:'La Operacion NO Pudo Resolverse. Tipo de Datos No String'},
+            {code:405,msg:'La Operacion NO Pudo Resolverse. Mes Anterior NO Validado'}],
+            '#myModal2')
+        
+    } else {
+        alert('Error: PIN Incorrecto')
+    }//end if pin
+}//en click
+
+//Obtengo el id del docente especial selecionado
+$(".error").click(function () {
+  id = $(this).attr('atr')
+  mes = $(this).attr('atr2')
+  tipo = 'Especial'
+  //alert(mes)
+})
+
+$('#myModal2').on('shown.bs.modal', function () {
+    $('#pin').focus();
+})
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+</script>
